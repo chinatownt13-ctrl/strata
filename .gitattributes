@@ -1,0 +1,13 @@
+# Normalise line endings in the repository, not on checkout. Without this,
+# Windows' autocrlf rewrites demo.sh to CRLF and it stops running on Linux/macOS.
+* text=auto eol=lf
+
+*.sh    text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.yml   text eol=lf
+
+*.strata     binary
+*.strata-wal binary
+*.strata-shm binary
