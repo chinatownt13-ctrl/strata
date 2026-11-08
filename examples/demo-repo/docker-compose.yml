@@ -1,0 +1,20 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://acme:acme@db:5432/acme
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: acme
+      POSTGRES_USER: acme
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

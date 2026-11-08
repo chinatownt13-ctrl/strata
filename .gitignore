@@ -1,0 +1,28 @@
+# strata databases — never commit a ledger
+*.strata
+*.strata-wal
+*.strata-shm
+.strata
+.strata-wal
+.strata-shm
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# scratch
+.tmp/

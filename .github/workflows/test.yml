@@ -1,0 +1,35 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: py${{ matrix.python }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.9", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      # No dependencies to install: that is the point of the project.
+      - name: Run the test suite
+        run: python -m unittest discover -s tests -t tests -v
+
+      - name: Verify the example story runs end to end
+        if: runner.os != 'Windows'
+        run: bash examples/demo.sh > /dev/null
+
+      - name: Verify the CLI is importable as a module
+        run: python -m strata --help
+        env:
+          PYTHONPATH: src
