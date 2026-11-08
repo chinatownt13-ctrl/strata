@@ -48,7 +48,7 @@ $ strata assert -s project:acme/db -p engine -v postgres \
 不用装：
 
 ```bash
-git clone https://github.com/you/strata && cd strata
+git clone https://github.com/chinatownt13-ctrl/strata && cd strata
 python -m unittest discover -s tests -t tests   # 113 个测试，不需要 pytest
 bash examples/demo.sh                            # 一个完整的叙事演示
 ```

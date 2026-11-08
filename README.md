@@ -57,7 +57,7 @@ provenance, dependency tracking. strata puts those parts back.
 Nothing to install:
 
 ```bash
-git clone https://github.com/you/strata && cd strata
+git clone https://github.com/chinatownt13-ctrl/strata && cd strata
 python -m unittest discover -s tests -t tests   # 113 tests, no pytest needed
 bash examples/demo.sh                            # a worked story, end to end
 ```
